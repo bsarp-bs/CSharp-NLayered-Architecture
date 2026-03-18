@@ -1,0 +1,68 @@
+﻿@model List<PlantSaleUI.Models.StaffWorkTypeCounter>
+
+<div class="row">
+    <div class="col-md-7 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <p class="card-title">Personel Tipi</p>
+                <p class="mb-4">Personel dağılımı</p>
+
+                <div style="height:300px; position:relative;">
+                    <canvas id="myCustomPieChart"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.5.0"></script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const ctx = document.getElementById("myCustomPieChart");
+
+        const labels = [
+            @foreach (var item in Model)
+            {
+                    <text>"@item.WorkType",</text>
+            }
+        ];
+
+        const dataValues = [
+            @foreach (var item in Model)
+            {
+                    <text>@item.counter,</text>
+            }
+        ];
+
+        new Chart(ctx, {
+            type: "pie",
+            data: {
+                labels: labels,
+                datasets: [{
+                    data: dataValues,
+                    backgroundColor: [
+                        "#b91d47",
+                        "#00aba9",
+                        "#2b5797",
+                        "#e8c3b9",
+                        "#1e7145",
+                        "#ff6384",
+                        "#36a2eb",
+                        "#ffce56"
+                    ]
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        display: true,
+                        position: "bottom"
+                    }
+                }
+            }
+        });
+    });
+</script>

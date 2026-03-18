@@ -1,0 +1,62 @@
+﻿@using EntityLayer.Concrete_Entities
+@model List<Staff>
+@{
+    ViewData["Title"] = "StaffIndex";
+    Layout = "~/Views/Shared/GeneralLayout.cshtml";
+}
+
+<div class="col-lg-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+
+            <h4 class="card-title">Çalışan Listesi</h4>
+
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Çalışan Adı</th>
+                        <th>İş Tipi</th>
+                        <th>Sil</th>
+                        <th>Güncelle</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.StaffID</td>
+                            <td>@item.StaffName</td>
+                            <td>@item.WorkType</td>
+                            <td>
+                                <a asp-controller="Staff"
+                                   asp-action="DeleteStaff"
+                                   asp-route-id="@item.StaffID"
+                                   class="btn btn-danger btn-sm">
+                                    Sil
+                                </a>
+                            </td>
+
+                            <td>
+                                <a asp-controller="Staff"
+                                   asp-action="EditStaff"
+                                   asp-route-id="@item.StaffID"
+                                   class="btn btn-warning btn-sm">
+                                    Güncelle
+                                </a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+
+            <a asp-controller="Staff"
+               asp-action="AddStaff"
+               class="btn btn-success">
+                Yeni Çalışan
+            </a>
+
+        </div>
+    </div>
+</div>

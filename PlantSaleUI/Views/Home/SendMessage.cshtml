@@ -1,0 +1,48 @@
+﻿@model EntityLayer.Concrete_Entities.Communication
+
+<!--footer-->
+
+<div class="contact-agile" id="contact">
+	<div class="container">
+		<h3 class="tittle">Bizimle İletişime Geç</h3>
+
+		<p class="heading-btm-w3ls">Suspendisse fringilla pellentesque risus sit amet bibendum.</p>
+
+		<div class="col-md-9 contact-middle">
+			<h2>Merhaba de!</h2>
+
+
+            @using (Html.BeginForm("SendMessage", "Home", FormMethod.Post)){
+				<div class="form-agileinfo">
+
+
+					<label asp-for="@Model.Name">İsim</label>
+					<input asp-for="@Model.Name" class="form-group" placeholder="İsim giriniz" />
+
+
+					<label asp-for="@Model.Mail">Mail</label>
+					<input asp-for="@Model.Mail" class="form-group" placeholder="Mail giriniz" />
+
+				</div>
+
+				<div class="form-agileits-w3layouts">
+
+					<label asp-for="@Model.Comment">Yorum</label>
+					<textarea asp-for="@Model.Comment"></textarea>
+					<input type="submit" value="MESAJ GONDER">
+
+				</div>
+				<div class="clearfix"></div>
+			}
+
+
+		</div>
+	</div>
+</div>
+<div class="map-w3ls">
+	<iframe src="https://www.google.com/maps?q=Kad%C4%B1k%C3%B6y%20%C4%B0stanbul&output=embed"></iframe>
+</div>
+<div class="copy">
+	<p>© 2017 In Harvest . All Rights Reserved | Design by <a href="http://w3layouts.com/">W3layouts</a> </p>
+</div>
+<!--/footer -->

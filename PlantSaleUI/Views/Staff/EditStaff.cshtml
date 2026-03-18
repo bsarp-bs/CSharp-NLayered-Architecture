@@ -1,0 +1,58 @@
+﻿@model EntityLayer.Concrete_Entities.Staff
+@{
+    ViewData["Title"] = "EditStaff";
+    Layout = "~/Views/Shared/GeneralLayout.cshtml";
+}
+
+<div class="col-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+
+            <h4 class="card-title">Çalışan Güncelle</h4>
+
+            <form class="forms-sample" method="post">
+
+                <input type="hidden" asp-for="StaffID" />
+
+                <div class="form-group">
+                    <label asp-for="StaffName">Çalışan adı </label>
+                    <input asp-for="StaffName" class="form-control" placeholder="Çalışan adı">
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="WorkType">İş Tipi</label>
+                    <input asp-for="WorkType" class="form-control" placeholder="İş Tipi">
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="ImgUrl">Görsel</label>
+                    <input asp-for="ImgUrl" class="form-control" placeholder="Görsel" />
+                    <div />
+
+                <div class="form-group">
+                    <label asp-for="FacebookURL">Facebook Linki</label>
+                    <input asp-for="FacebookURL" class="form-control" placeholder="Facebook Linki" />
+                    <div />
+
+                <div class="form-group">
+                    <label asp-for="XURL">X Linki</label>
+                    <input asp-for="XURL" class="form-control" placeholder="X Linki" />
+                    <div />
+
+                <div class="form-group">
+                    <label asp-for="InstagramURL">Instagram Linki</label>
+                    <input asp-for="InstagramURL" class="form-control" placeholder="Instagram Linki" />
+                    <div />
+
+                <div class="form-group">
+                    <label asp-for="WebsiteURL">Website Linki</label>
+                    <input asp-for="WebsiteURL" class="form-control" placeholder="Website Linki" />
+                    <div />
+
+                <button type="submit" class="btn btn-success">Güncelle</button>
+
+            </form>
+
+        </div>
+    </div>
+</div>

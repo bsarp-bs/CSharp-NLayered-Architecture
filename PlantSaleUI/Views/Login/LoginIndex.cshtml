@@ -1,0 +1,44 @@
+﻿@model PlantSaleUI.Models.SignInViewModel
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--=============== REMIXICONS ===============-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/3.5.0/remixicon.css" crossorigin="">
+
+    <!--=============== CSS ===============-->
+    <link rel="stylesheet" href="~/login-form/assets/css/styles.css">
+
+    <title>Giriş Formu</title>
+</head>
+<body>
+    <div class="login">
+        <img src="~/login-form/assets/img/login-bg.png" alt="image" class="login__bg">
+
+        <form class="login__form" method="post">
+            <h1 class="login__title">Hoşgeldiniz</h1>
+
+            <div class="login__inputs">
+                <div class="login__box">
+                    <input type="text" placeholder="Kullanıcı Adı" asp-for="username" required="" autofocus>
+                    <i class="ri-mail-fill"></i>
+                </div>
+
+                <div class="login__box">
+                    <input type="password" placeholder="Şifre" asp-for="password" required="" autofocus>
+                    <i class="ri-lock-2-fill"></i>
+                </div>
+            </div>
+
+            <button type="submit" class="login__button">Giriş Yap</button>
+
+        </form>
+    </div>
+</body>
+</html>

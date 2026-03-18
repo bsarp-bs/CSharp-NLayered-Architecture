@@ -1,0 +1,65 @@
+﻿@using EntityLayer.Concrete_Entities
+@model List<Images>
+
+@{
+    ViewData["Title"] = "ImageIndex";
+    Layout = "~/Views/Shared/GeneralLayout.cshtml";
+}
+
+<div class="col-lg-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+
+            <h4 class="card-title">Görsel Listesi</h4>
+
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Başlık</th>
+                        <th>Açıklama</th>
+                        <th>Görsel</th>
+                        <th>Sil</th>
+                        <th>Güncelle</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.ImagesID</td>
+                            <td>@item.Title</td>
+                            <td>@item.Desc</td>
+                            <td><img src="@Url.Content(item.ImgURL)" width="100" /></td>
+                            <td>
+                                <a asp-controller="Images"
+                                   asp-action="DeleteImage"
+                                   asp-route-id="@item.ImagesID"
+                                   class="btn btn-danger btn-sm">
+                                    Sil
+                                </a>
+                            </td>
+
+                            <td>
+                                <a asp-controller="Images"
+                                   asp-action="UpdateImage"
+                                   asp-route-id="@item.ImagesID"
+                                   class="btn btn-warning btn-sm">
+                                    Güncelle
+                                </a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+
+            <a asp-controller="Images"
+               asp-action="AddImage"
+               class="btn btn-success">
+                Yeni Görsel
+            </a>
+
+        </div>
+    </div>
+</div>

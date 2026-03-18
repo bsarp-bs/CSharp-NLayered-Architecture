@@ -1,0 +1,22 @@
+﻿@using EntityLayer.Concrete_Entities
+@model List<Staff>
+
+<div class="about" id="about">
+	<div class="container">
+		<h3 class="tittle">Ekibimiz</h3>
+		<p class="heading-btm-w3ls">Ekip arkadaşlarımız aşağıda yer almaktadır.</p>
+
+		<div class="clients">
+			<ul>
+				@foreach (var item in Model)
+				{
+					<li>
+						<img src="@Url.Content(item.ImgUrl)" class="img-responsive" />
+						<span>@item.StaffName</span>
+					</li>
+				}
+			</ul>
+		</div>
+
+	</div>
+</div>

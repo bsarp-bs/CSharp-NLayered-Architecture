@@ -1,0 +1,62 @@
+﻿@using EntityLayer.Concrete_Entities
+@model List<Communication>
+
+@{
+    ViewData["Title"] = "CommunicationIndex";
+    Layout = "~/Views/Shared/GeneralLayout.cshtml";
+}
+
+<div class="col-lg-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+
+            <h4 class="card-title">İstek Listesi</h4>
+
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <td>#</td>
+                        <td>Başlık</td>
+                        <td>Mail</td>
+                        <td>Yorum</td>
+                        <td>Tarih</td>
+                        <td>Sil</td>
+                        <td>Güncelle</td>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.CommunicationID</td>
+                            <td>@item.Name</td>
+                            <td>@item.Mail</td>
+                            <td>@item.Comment</td>
+                            <td>@item.Date</td>
+
+                            <td>
+                                <a asp-action="DeleteCommunication"
+                                   asp-controller="Communication"
+                                   asp-route-id="@item.CommunicationID"
+                                   class="btn btn-outline-info">Sil</a>
+                            </td>
+
+                            <td>
+                                <a asp-action="UpdateCommunication"
+                                   asp-controller="Communication"
+                                   asp-route-id="@item.CommunicationID"
+                                   class="btn btn-outline-info">Güncelle</a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+
+            <a asp-action="AddCommunication"
+               asp-controller="Communication"
+               class="btn btn-success form-group">Yeni Ekle</a>
+
+        </div>
+    </div>
+</div>
